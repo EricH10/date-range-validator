@@ -33,6 +33,15 @@ STARTING THE SERVER:
 
     - run tests with the test command
 
+IMPROVEMENTS:
+    - Test data creation should be put into more json files to cover a larger range of scenarios
+    - Logging: Depending on if you need visibility into requests or the comparisons more logging could be added
+    - Spawning more actors through a Router with round robin load balancing
+    - Separate files into more packages most are just 1 off files right now so I didn't yet
+
+
+
+
 
 
 

@@ -13,6 +13,7 @@ class DateSearchTest extends WordSpec with Matchers with ScalaFutures {
   }
 
   def createReservations(): Seq[Reservation] = {
+    //load a json file instead to make this more reusable
     val reservations = List(
       Reservation("2018-06-01", "2018-06-03", 1),
       Reservation("2018-06-08", "2018-06-10", 1),
