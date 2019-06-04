@@ -1,19 +1,19 @@
 Some background on akka and the concurrency system if not familiar with it.
-    - Maybe a bit over engineered for this problem, but this application has the framework for being a highly concurrent scalable
-      application with a non blocking nature.  In one part I do block the thread, but in a more robust application the actor system
-      would look more hierarchical and would delegate tasks.  It would be easier to not block any threads this way.
+    - Maybe a bit over engineered for this problem, but this application has the framework for being a highly scalable
+      application with a non blocking nature.
 
     - This server will spawn actors (lightweight threads in a way) to process messages in a non blocking concurrent way
       Right now the application doesn't spawn more than one actor, but it can be easily configured to spawn any number of them to process messages
       That's the basics, but I would love to talk more about this!
 
 This application is an http server that can be hit at this url localhost:8080/search?filename={fileName}
-    - The url takes a fileName as a parameter.  The file should be accessible to the server somewhere so it will either need
-    the path to the file or if you put the file in the top of the directory just the file name.
+    - The url takes a file name as a parameter.  The file should be accessible to the server somewhere so it will either need
+    the path to the file or if you put the file in the top directory just the file name.
 
-    - The return value is a list of the campsites that can be reserved at the date specified in the file
+    - The return value is a list of the campsites that can be reserved at the date specified in the file taking into account a
+      1 day gap rule
 
-    - This url will work on server start up http://localhost:8080/search?filename=test-case.json
+    - This url will work after server start up http://localhost:8080/search?filename=test-case.json
 
     - The main problem of finding which campsites are able to be reserved taking into account the "gap rule" is solved by checking whether
     there is an overlap in the start and end dates and then applying a gap factor to the start and end dates.  If one of the
@@ -25,8 +25,8 @@ This application is an http server that can be hit at this url localhost:8080/se
 
 STARTING THE SERVER:
     - Use CMD or whatever terminal you prefer to run a .bat file
-      Navigate to the application campspot-project and run sbt.bat
-      execute the command reStart and the server will start at port 8080
+      Navigate to the application directory data-range-validator and run sbt.bat
+      Once dependencies are all downloaded execute the command reStart and the server will start at port 8080
 
     - Alternatively you can run through intellij with the scala plugin and sbt plugin
       If you run the sbt shell you can do the same command either reStart or run works

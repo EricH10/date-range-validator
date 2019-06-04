@@ -27,7 +27,7 @@ class DateSearchTest extends WordSpec with Matchers with ScalaFutures {
   }
 
   "DateSearch" should {
-    "return 2 campsites)" in {
+    "return 2 ids)" in {
       val searchObject = buildDataForSearch("2018-06-04", "2018-06-06")
       val result = DateSearch.findAvailableCampsites(searchObject)
       result.size should ===(2)
