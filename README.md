@@ -1,4 +1,5 @@
 Some background on akka and the concurrency system if not familiar with it.
+
     - Maybe a bit over engineered for this problem, but this application has the framework for being a highly scalable
       application with a non blocking nature.
 
@@ -7,6 +8,7 @@ Some background on akka and the concurrency system if not familiar with it.
       That's the basics, but I would love to talk more about this!
 
 This application is an http server that can be hit at this url localhost:8080/search?filename={fileName}
+
     - The url takes a file name as a parameter.  The file should be accessible to the server somewhere so it will either need
     the path to the file or if you put the file in the top directory just the file name.
 
@@ -24,6 +26,7 @@ This application is an http server that can be hit at this url localhost:8080/se
     - The main algorithm, in the DateSearch file, the finding of valid reservations operates in O(N) time, N being the number of reservations in the file
 
 STARTING THE SERVER:
+
     - Use CMD or whatever terminal you prefer to run a .bat file
       Navigate to the application directory data-range-validator and run sbt.bat
       Once dependencies are all downloaded execute the command reStart and the server will start at port 8080
@@ -34,9 +37,13 @@ STARTING THE SERVER:
     - run tests with the test command
 
 IMPROVEMENTS:
+
     - Test data creation should be put into more json files to cover a larger range of scenarios
+
     - Logging: Depending on if you need visibility into requests or the comparisons more logging could be added
+
     - Spawning more actors through a Router with round robin load balancing
+
     - Separate files into more packages most are just 1 off files right now so I didn't yet
 
 
