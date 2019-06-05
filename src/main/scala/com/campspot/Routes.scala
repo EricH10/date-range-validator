@@ -34,6 +34,9 @@ trait Routes extends JsonSupport {
           concat(
             get {
               parameters('filename.as[String]) { (filename) =>
+                // for the anyone not familiar with akka "fileParserActor ? ParseFile" sends the object ParseFile to the fileParser Actor
+                // ? is the ask method meaning it will wait on the actor to return a response
+                //you can follow this flow to the FileParserActor and the receive method inside that actor
                 val searchObject: Future[Option[SearchObject]] =
                   (fileParserActor ? ParseFile(filename)).mapTo[Option[SearchObject]]
 
